@@ -1,0 +1,22 @@
+resources:
+- name: flexrating-server
+  type: git
+  source:
+    uri: https://github.com/ineentho/flexrating-server.git
+    branch: master
+
+jobs:
+- name: build-flexrating-server
+  plan:
+  - aggregate:
+    - do:
+      - get: flexrating-server
+        trigger: true
+      - aggregate:
+        - task: install-dev
+          file: flexrating-server/ci/install-dev.yml
+  - aggregate:
+    - task: lint
+      file: flexrating-server/ci/lint.yml
+    - task: test
+      file: flexrating-server/ci/test.yml

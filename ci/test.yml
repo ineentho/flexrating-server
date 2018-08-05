@@ -1,0 +1,14 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: node
+    tag: 9.11
+
+inputs:
+- name: installed-flexrating-server-dev
+  path: flexrating-server
+
+run:
+  path: flexrating-server/ci/test.sh
