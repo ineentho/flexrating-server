@@ -5,6 +5,7 @@ import koaRoarrLogger from 'koa-roarr-logger'
 import { PORT, HOST } from './config'
 import log from './log'
 import routes from './routes/index'
+import createDb from './db'
 
 if (!process.env.ROARR_LOG) {
   // eslint-disable-next-line no-console
@@ -35,6 +36,8 @@ const errorHandler = () => async (ctx, next) => {
 }
 
 const app = new Koa()
+
+app.context.db = createDb()
 
 app
   .use(koaRoarrLogger(log))

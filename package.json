@@ -30,6 +30,7 @@
     "koa": "^2.5.2",
     "koa-roarr-logger": "^1.2.0",
     "koa-router": "^7.4.0",
+    "orientjs": "^2.2.10",
     "roarr": "^2.5.0",
     "uuid": "^3.3.2"
   },
